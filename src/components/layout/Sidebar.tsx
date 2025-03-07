@@ -3,6 +3,7 @@ import { RootState } from '@/store'
 import { setNavIsOpen } from '@/store/generalSlice'
 import clsx from 'clsx'
 import { FaTimes } from 'react-icons/fa'
+import { LuLogOut } from 'react-icons/lu'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Sidebar = () => {
@@ -18,7 +19,7 @@ const Sidebar = () => {
       onClick={() => dispatch(setNavIsOpen(false))}
     >
       <div
-        className='border-gray-light border-[1px] w-[230px] h-full bg-white py-2 flex flex-col gap-8'
+        className='border-gray-light border-[1px] w-[230px] h-full bg-white py-2 flex flex-col gap-8 overflow-auto'
         onClick={(e) => e.stopPropagation()}
       >
         <div className='w-full flex items-start'>
@@ -60,6 +61,18 @@ const Sidebar = () => {
               </div>
             )
           })}
+        </div>
+
+        <div className='px-3 mt-20'>
+          <button className='flex gap-3 items-center px-3 py-2.5 text-sm cursor-pointer text-blackish'>
+            <LuLogOut />
+            Logout
+          </button>
+        </div>
+
+        <div className='px-7 mb-7'>
+          <p className='uppercase text-gray-500 text-[8.5px]'>powered by</p>
+          <img src='/images/powered-by.svg' alt='Powered by Cardinfra' />
         </div>
       </div>
     </div>
