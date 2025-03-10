@@ -1,20 +1,11 @@
+import { generateRandomDate } from '@/lib/helper'
 import { format } from 'date-fns'
 import { CiCalendar } from 'react-icons/ci'
 
 const Intro = () => {
   const user = 'Nazeer'
 
-  const generateRandomDate = () => {
-    const startDate = new Date('2023-01-01')
-    const endDate = new Date()
-
-    const randomTime =
-      startDate.getTime() +
-      Math.random() * (endDate.getTime() - startDate.getTime())
-    return new Date(randomTime)
-  }
   const lastLogin = generateRandomDate()
-
 
   return (
     <div className='flex flex-col-reverse text-blackish md:flex-row md:justify-between'>

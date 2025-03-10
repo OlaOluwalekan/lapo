@@ -10,6 +10,8 @@ const Sidebar = () => {
   const { page, navIsOpen } = useSelector((store: RootState) => store.general)
   const dispatch = useDispatch()
 
+  // console.log('sider=>', location.pathname)
+
   return (
     <div
       className={clsx(
@@ -23,7 +25,7 @@ const Sidebar = () => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className='w-full flex items-start'>
-          <img src='./images/logo.svg' alt='Logo' className='w-5/6' />
+          <img src='/images/logo.svg' alt='Logo' className='w-5/6' />
           <button
             className='bg-red-400/30 text-red-400 p-2 rounded-sm cursor-pointer md:hidden'
             onClick={() => dispatch(setNavIsOpen(false))}
@@ -44,7 +46,8 @@ const Sidebar = () => {
                   <article
                     className={clsx(
                       'flex py-2.5 px-3 gap-3 rounded-xl font-medium',
-                      page.toLowerCase() === navLink.label.toLowerCase()
+                      page.toLowerCase() ===
+                        navLink.label.replace(' ', '-').toLowerCase()
                         ? 'border-[1px] border-gray-light bg-gray-lighter text-primary-blue'
                         : 'text-black/50'
                     )}
